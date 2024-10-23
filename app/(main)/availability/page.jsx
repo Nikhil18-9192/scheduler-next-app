@@ -1,8 +1,12 @@
+import { getUserAvailability } from '@/actions/availability'
 import React from 'react'
+import { defaultAvailability } from './data'
+import AvailabilityForm from './_components/avaialability-forms'
 
-const Availability = () => {
+const Availability = async () => {
+  const availability = await getUserAvailability()
   return (
-    <div>Availability</div>
+    <AvailabilityForm initialData={availability || defaultAvailability} />
   )
 }
 
